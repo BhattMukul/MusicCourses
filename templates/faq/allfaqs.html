@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+FAQs - MusiLearn
+{% endblock %}
+
+{% block meta %}
+<meta name="description"
+    content="MusiLearn is an Online Music Course Platform, providing you the cheapest music courses. Learn Guitar, Drums, Piano, Singing, and many more instruments.">
+<meta name="keywords" content="Learn music online, online music courses, online music tutorials">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/faq/allfaqs.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="faq-main-container">
+    <h1>FAQs</h1>
+    {% for faq in allfaqs %}
+    <div class="faq-container">
+        <h3>{{faq.question}} ?</h3>
+        <p>{{faq.answer1 | linebreaks | truncatewords:20}}</p>
+        <button><a href="{% url 'faq:partfaq' id=faq.id %}">View More ></a></button>
+    </div>
+    {% endfor %}
+    <div class="faq-container goto">
+        <button><a href="{% url 'support' %}">Go To Support</a></button>
+    </div>
+</div>
+{% endblock %}

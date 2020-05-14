@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Support - MusiLearn
+{% endblock %}
+
+{% block meta %}
+<meta name="description"
+    content="Buy Cheapest Music Course online on MusiLearn, An Online Music Course Platform providing online courses on Guitar, Piano, Drums, Singing, and many more.">
+<meta name="keywords" content="buy cheap music course, music courses online, Learn music online">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+{%endblock%}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/account/support_success.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="success-container">
+    <h3>Application Submitted Successfully</h3>
+    <p>We Will Reach You As Soon As Possible</p>
+    <button><a href="{% url 'courses:index' %}">Back To Home</a></button>
+</div>
+{% endblock %}

@@ -1,0 +1,56 @@
+.add-container {
+    width: 60%;
+    margin: auto;
+}
+
+.add-container h2 {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.add-container h6 {
+    text-align: center;
+}
+
+.add-container form {
+    width: 90%;
+    margin: auto;
+}
+
+.add-container form button {
+    margin: 15px;
+    color: white;
+    background-color: rgb(8, 22, 34);
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.15rem;
+    padding: 7px 12px;
+    text-align: center;
+}
+
+.add-container form label {
+    margin: 7px 0;
+    text-transform: uppercase;
+}
+
+#uploading-spin {
+    opacity: 0;
+}
+
+#uploading-text {
+    font-weight: 700;
+    opacity: 0;
+}
+
+.mycaution {
+    color: red;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .add-container {
+        width: 90%;
+        margin: auto;
+    }
+}

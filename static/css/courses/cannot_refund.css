@@ -1,0 +1,39 @@
+.order-container {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    padding: 65px 0;
+}
+
+.order-container button {
+    color: white;
+    padding: 6px 15px;
+    background-color: rgb(5, 19, 27);
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.order-container button a {
+    color: white;
+    text-decoration: none;
+}
+
+.reason {
+    color: red;
+    font-size: 1.25rem;
+    font-weight: 650;
+}
+
+.reason strong {
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .order-container {
+        width: 90%;
+        margin: auto;
+    }
+}

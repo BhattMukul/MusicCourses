@@ -1,0 +1,36 @@
+.fail-container {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+.fail-container button {
+    border: none;
+    border-radius: 5px;
+    background-color: #0c1922;
+    text-align: center;
+    padding: 7px 12px;
+    margin-top: 25px;
+}
+
+.fail-container a {
+    color: white;
+    text-decoration: none;
+}
+
+.fail-container button:hover {
+    background-color: black;
+    transition: 0.2s ease;
+}
+
+@media screen and (max-width: 768px) {
+    .fail-container {
+        width: 90%;
+        margin: auto;
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+}

@@ -1,0 +1,44 @@
+.success-container {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+.success-container button {
+    color: white;
+    background-color: #182633;
+    border: none;
+    width: 50%;
+    border-radius: 5px;
+    font-size: 1.25rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.success-container button:hover {
+    transition: 0.2s ease;
+    background-color: black;
+}
+
+.success-container button a {
+    color: white;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+    .success-container {
+        width: 90%;
+        margin: auto;
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+
+    .success-container button {
+        width: 80%;
+        margin: auto;
+        text-align: center;
+    }
+}

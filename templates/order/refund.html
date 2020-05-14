@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Admin Refund - MusiLearn{% endblock %}
+
+{% block meta %}
+<meta name="description"
+    content="MusiLearn is an Online Music Course Platform, providing you the cheapest music courses. Learn Guitar, Drums, Piano, Singing, and many more instruments.">
+<meta name="keywords" content="Learn music online, online music courses, online music tutorials">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/order/refund.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="mysignup-container">
+    <h2>Refund Course</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button type="submit">Search</button>
+
+    </form>
+    {% if order %}
+    <div class="order">
+        <table>
+            <tr>
+                <td class="myleft">Txn Id</td>
+                <td class="myright">{{order.txn_id}}</td>
+            </tr>
+            <tr>
+                <td class="myleft">Order Id</td>
+                <td class="myright">{{order.id}}</td>
+            </tr>
+            <tr>
+                <td class="myleft">Created</td>
+                <td class="myright">{{order.created}}</td>
+            </tr>
+            <tr>
+                <td class="myleft">Refund Period</td>
+                <td class="myright">{{order.refund_period}}</td>
+            </tr>
+            <tr>
+                <td class="myleft">Username</td>
+                <td class="myright">{{thisuser.username}}</td>
+            </tr>
+            <tr>
+                <td class="myleft">Course</td>
+                <td class="myright">{{course.title|truncatewords:8}}</td>
+            </tr>
+            <tr>
+                <td class="myleft">Refunded</td>
+                <td class="myright refunded">{{order.refunded}}</td>
+            </tr>
+        </table>
+        <form action="{% url 'process_refund_course' txn_id=order.txn_id %}">
+            <button>Process Refund</button>
+        </form>
+    </div>
+
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+<div style="width: 75%;margin: auto;" class="main-container">
+    <header style="width: 100%;
+height: 100%;
+background-color: #0c1922;">
+        <center>
+            <h1 style="color: white;margin: 10px 0;">MusiLearn</h1>
+        </center>
+    </header>
+    <div style="margin-top: 25px;color: #0c1922;
+margin-left: 20px;font-size: 1.1rem;" class="to">
+        <p>To,</p>
+        <p>M/s <strong>{{tutor.user.first_name}} {{tutor.user.last_name}}</strong></p>
+    </div>
+    <div style="margin: 15px 0;color: #0c1922;
+margin-left: 20px;font-size: 1.1rem;" class="course">
+        <h3>Course Purchased - {{course.title}}</h3>
+    </div>
+    <div style="text-align: center;" class="minus">
+        <h4 style="text-align: center;font-size: 1.25rem;color: blue;">₹400 Has Been Added From Your MusiLearn
+            Account</h4>
+    </div>
+    <div style="color: #0c1922;
+margin-left: 20px;font-size: 1.1rem;" class="table">
+        <table style="width: 97%;
+    margin: auto;
+    text-align: center;">
+            <thead style="background-color: #0c1922;
+        color: white !important;
+        font-size: 1.15rem;">
+                <tr>
+                    <th>Student Name</th>
+                    <th>Email</th>
+                    <th>Date Of Purchase</th>
+                    <th>MusiLearn Account</th>
+                </tr>
+            </thead>
+            <tbody style="font-size: 1rem;">
+                <tr>
+                    <td>{{student.user.first_name}} {{student.user.last_name}}</td>
+                    <td>{{student.user.email}}</td>
+                    <td>{{datetime}}</td>
+                    <td>₹{{tutor.credits_15}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="margin-top: 25px;color: #0c1922;
+margin-left: 20px;font-size: 1.1rem;" class="visit">
+        <p>Thanks For Choosing <a href="http://127.0.0.1:8000/">MusiLearn</a></p>
+    </div>
+</div>

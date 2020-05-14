@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Add New Video - MusiLearn{%endblock%}
+
+{% block meta %}
+<meta name="description"
+    content="Earn with your Passion, Teach on MusiLearn An Online Music Course Platform by adding music courses.Teach Guitar, Drums, Piano, Singing, and many more.">
+<meta name="keywords" content="Teach music online, earn online by music tutorial, teach on MusiLearn">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English"> {%endblock%}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/courses/add_video.css' %}">
+{%endblock%}
+
+
+
+{% block content %}
+<div class="add-container">
+    <h2>ADD NEW Video - {{course.title}}</h2>
+    <h5 class="mycaution"><i class="fas fa-exclamation-triangle"></i> Video Once Added Can't Be Deleted, Can Only Be
+        Edited</h5>
+    <h6><a href="{% url 'faq:partfaq' id=5 %}">Click Here</a> To See How To Add New Video ?
+    </h6>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+
+
+        {{form|crispy}}
+        <button type="submit" onclick="myFunction()">Add Video</button>
+        <span id="uploading-spin" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        <span class="uploading" id="uploading-text">Uploading...</span>
+        <script>
+            function myFunction() {
+                document.getElementById("uploading-spin").style.opacity = "1";
+                document.getElementById("uploading-text").style.opacity = "1";
+            }
+        </script>
+    </form>
+
+</div>
+
+
+{%endblock%}

@@ -1,0 +1,211 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{course.title}} Courses-MusiLearn
+{%endblock%}
+
+{% block meta %}
+<meta name="description" content="{{course.description|truncatechars:160}}">
+<meta name="keywords" content="{{course.category.meta_key}}">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+{%endblock%}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/courses/course-detail.css' %}">
+{%endblock%}
+
+{% block content %}
+<section class="bgimage">
+        <div class="container-fluid">
+                <div class="row">
+                        <div class="mycta-text col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="course-item">
+                                        <div class="course-detail">
+                                                <h1>{{course.title}}</h1>
+                                                <h6>by {{course.tutor.user.first_name}}
+                                                        {{course.tutor.user.last_name}}
+                                                        <img width="30px" height="30px" style="border-radius: 50%;"
+                                                                src="{{course.tutor.profile_pic.url}}"
+                                                                alt="{{course.tutor.user.first_name}} profile pic">
+                                                        <span class="created-on"> Created On:
+                                                                {{course.created|date}}</span>
+                                                </h6>
+
+                                                <a href="{{course.category.get_absolute_url}}">
+                                                        <h5>{{course.category.name}}</h5>
+                                                </a>
+                                                <h6>Language: {{course.language}}</h6>
+                                                <span>Rating:</span>
+                                                {% for i in course.get_rating %}
+                                                <i class="fas fa-star"></i>
+                                                {%endfor%}
+                                                <h5>Course Duration: {{duration}} minutes</h5>
+                                                <h5>Students Enrolled: <strong>{{course.students.count}}</strong></h5>
+                                        </div>
+                                        <div class="course-img">
+                                                <img src="{{course.thumbnail.url}}" alt="{{course.title}} thumbnail">
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+</section>
+<div class="mycontainer">
+        <div class="course-main-container">
+                <div class="course-block">
+                        <h2>Course Preview</h2>
+                        {% if course.preview_video %}
+
+                        <video width="100%" controls autoplay>
+                                <source src="{{course.preview_video.url}}" type="video/mp4">
+                                <source src="{{course.preview_video.url}}" type="video/ogg">
+                                Your browser does not support HTML5 video.
+                        </video>
+                        {% else %}
+                        <h2 class="no-preview">Sorry! ,No Preview Video Provided</h2>
+                        {% endif %}
+                </div>
+
+                <div class="course-block">
+                        <h2>Course Contents</h2>
+                        {% if videos %}
+                        <ul>
+                                {% for video in videos %}
+                                <li><span class="content-title">{{video.title}} </span>- {{video.video_length_in_min}}
+                                        min.</li>
+                                {% endfor %}
+                        </ul>
+                        {% else %}
+                        <li>
+                                <span class="no-videos">This Course Contains No Videos</span>
+                        </li>
+                        {% endif %}
+                </div>
+        </div>
+        <div class="course-side-container">
+                <h1>₹{{course.price}}</h1>
+                {% if owned %}
+                {% if tutor %}
+                <button class="myb1"> <a href="{% url 'course_edit' id=course.id slug=course.slug %}"> Edit
+                                Course <i class="fas fa-check-circle"></i></a></button>
+                {% else %}
+                <button class="myb1"> <a href="{{course.get_course_content}}"> Go To
+                                Course <i class="fas fa-check-circle"></i></a></button>
+                <div class="can-refund">
+                        <p>Want To Refund This Course ? <a href="{% url 'request_refund' id=course.id %}">click here</a>
+                        </p>
+                </div>
+                {% endif %}
+                {% else %}
+                <button class="myb1"><a href="{% url 'cart:cart_add' course.id %}">Buy Now
+                                <i class="fas fa-shopping-cart"></a></i></button>
+                <button class="myb2 wishlist"><a href="{% url 'wishlist:add_wish' id=course.id slug=course.slug %}">Add
+                                To
+                                Wishlist
+                        </a><i class="far fa-heart"></i></button>
+                {% endif %}
+                <p class="money-back">3 Days Money Back Guarantee</p>
+                <p class="course-include">This Course Includes</p>
+                <ul>
+                        <li>On Demand {{videos.count}} Videos</li>
+                        <li>Full lifetime access</li>
+                        <li>Access on mobile and TV</li>
+                </ul>
+                <div class="share">
+                        <button onclick="copylink()"><i class="far fa-share-square"></i> Share</button>
+                </div>
+        </div>
+</div>
+<div class="mycontainer">
+        <div class="course-main-container">
+                <div class="course-block">
+                        <h2>Requirements</h2>
+                        <p class="req-p">{{course.requirements|linebreaks}}</p>
+                </div>
+                <div class="course-block">
+                        <h2>Description</h2>
+                        <p class="req-p">{{course.description|linebreaks}}</p>
+                </div>
+                <div class="course-block">
+                        <h2>Author Of Course</h2>
+                </div>
+                <div class="course-block tutor-block">
+                        <div class="tutor-image">
+                                <img src="{{course.tutor.profile_pic.url}}" alt="{{course.tutor.user.first_name}}">
+                                <h4>{{course.tutor.user.first_name}} {{course.tutor.user.last_name}}</h4>
+                                <h4> <span>Age: </span>{{course.tutor.age}}</h4>
+                        </div>
+                        <div class="tutor-detail">
+                                <h2>About Author</h2>
+                                <p>{{course.tutor.about_yourself|linebreaks}}</p>
+                        </div>
+                </div>
+                <div class="course-block">
+                        <h2>Reviews</h2>
+                </div>
+                {% if reviews %}
+                {% for review in reviews  %}
+                <div class="comment-title">
+                        <div class="comment-image">
+                                <img src="{{review.user.profile_pic.url}}" alt="">
+                        </div>
+                        <span>{{review.user.user.first_name}}
+                                {{review.user.user.last_name}}</span>
+                </div>
+                <p class="rev-p">{{review.review}}</p>
+
+                {% endfor %}
+                {% else %}
+                <h5 class="no-rev">No Review</h5>
+                {% endif %}
+
+        </div>
+        <div class="course-side-container">
+                <div class="course-block">
+                        <h2>Similar Courses</h2>
+                        {% for course in recommend %}
+                        <a href="{{course.get_absolute_url}}">
+                                <div class="rec-item">
+                                        <div class="rec-item-img">
+                                                <img src="{{course.thumbnail.url}}" alt="{{course.title}}">
+                                        </div>
+                                        <div class="rec-item-detail">
+                                                <h4>{{course.title|truncatewords:6}}</h4>
+                                                <h6>by {{course.tutor.user.first_name}} {{course.tutor.user.last_name}}
+                                                        </h5>
+                                                        <a class="rec-item-cate"
+                                                                href="{{course.category.get_absolute_url}}">
+                                                                <h5>{{course.category.name}}</h5>
+                                                        </a>
+                                                        <span>Rating</span>
+                                                        {% for i in course.get_rating %}
+                                                        <i class="fas fa-star"></i>
+                                                        {% endfor %}
+                                                        <h3>₹{{course.price}}</h3>
+                                        </div>
+
+
+
+                                </div>
+                        </a>
+                        {% endfor %}
+                </div>
+        </div>
+</div>
+<script>
+        function copylink() {
+
+                var dummy = document.createElement('input'),
+                        text = window.location.href;
+                document.body.appendChild(dummy);
+                dummy.value = text;
+                dummy.select();
+                document.execCommand('copy');
+                document.body.removeChild(dummy);
+                alert('Link copied !');
+        }
+</script>
+{%endblock%}

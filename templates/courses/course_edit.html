@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Edit Course - MusiLearn{%endblock%}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/courses/course_edit.css' %}">
+{%endblock%}
+
+{% block content %}
+
+<div class="add-main-container">
+    <div class="add-container">
+        <div class="title-container">
+            <h2>EDIT COURSE</h2>
+            <div class="title-image">
+                <img src="{{course.thumbnail.url}}" alt="{{course.title}}">
+            </div>
+            <div class="title-heading">
+                <h2>{{course.title}}</h2>
+            </div>
+        </div>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form|crispy}}
+            <button type="submit" onclick="myFunction()">Update Course</button>
+            <span id="uploading-spin" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            <span class="uploading" id="uploading-text">Uploading...</span>
+            <script>
+                function myFunction() {
+                    document.getElementById("uploading-spin").style.opacity = "1";
+                    document.getElementById("uploading-text").style.opacity = "1";
+                }
+            </script>
+        </form>
+    </div>
+    <div class="add-side-container">
+        <h2>Course Content</h2>
+        <button><a href="{% url 'video_add' id=course.id slug=course.slug %}">Add Video</a></button>
+        <h6 class="mycaution"><i class="fas fa-exclamation-triangle"></i> Video Once Added Can't Be Deleted, Can Only Be
+            Edited</h6>
+        <h6><a href="{% url 'faq:partfaq' id=5 %}">Click Here</a> To See How To Add New Video ?
+        </h6>
+        {% if videos %}
+        {% for video in videos %}
+
+        <div class="video-counter">
+            <h6>{{ forloop.counter }}</h6>
+        </div>
+        <div class="other-video">
+            <div class="other-img">
+                <img src="{{course.thumbnail.url}}" alt="{{video.title}}">
+            </div>
+            <div class="other-name">
+                <a href="{{video.video.url}}">{{video.title|truncatewords:6}}</a>
+            </div>
+        </div>
+        <a href="{% url 'video_edit' id=course.id slug=course.slug video_id=video.id %}">Edit This Video</a>
+        <br>
+        <a href="{{video.video.url}}">View This Video</a>
+        {% endfor %}
+        {% else %}
+        <h5 style="text-align: center ;">This Course Has No Video</h5>
+        {% endif %}
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Order Unsuccessfull - MusiLearn{%endblock%}
+
+{% block meta %}
+<meta name="description"
+    content="MusiLearn is an Online Music Course Platform, providing you the cheapest music courses. Learn Guitar, Drums, Piano, Singing, and many more instruments.">
+<meta name="keywords" content="Learn music online, online music courses, online music tutorials">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/order/unsuccess.css' %}">
+{%endblock%}
+
+{% block content %}
+<div class="order-container">
+    <h2>Course Purchasing Unsuccessfull</h2>
+    {% if reason %}
+    <h4 class="reason">Reason: <strong>{{reason}}</strong></h4>
+    {% endif %}
+</div>
+{%endblock%}

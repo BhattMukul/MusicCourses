@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Checkout - MusiLearn{%endblock%}
+
+{% block meta %}
+<meta name="description"
+  content="MusiLearn is an Online Music Course Platform, providing you the cheapest music courses. Learn Guitar, Drums, Piano, Singing, and many more instruments.">
+<meta name="keywords" content="Learn music online, online music courses, online music tutorials">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+
+{% endblock %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'css/payment/checkout.css' %}">
+
+<script type="text/javascript">
+  var hash = "{{ hashh }}";
+  function submitPayuForm() {
+    if (hash == '') {
+      return;
+    }
+    var payuForm = document.forms.payuForm;
+    payuForm.submit();
+  }
+</script>
+
+{%endblock%}
+
+{% block content %}
+<h2 class="ch-heading">Checkout</h2>
+<div class="checkout-main-container">
+
+  <div class="checkout-form-container">
+    <form action="{{ action }}" method="POST" name="payuForm" class="checkout_form">
+      {% csrf_token %}
+      <input type="hidden" name="key" value="{{ MERCHANT_KEY }}" />
+      <input type="hidden" name="hash_string" value="{{ hash_string }}" />
+      <input type="hidden" name="hash" value="{{ hashh }}" />
+      <input type="hidden" name="posted" value="{{ posted }}" />
+      <input type="hidden" name="txnid" value="{{ txnid }}" />
+      <input type="hidden" name="amount" value="{{amount}}" /></td>
+      <label for="firstname">First name*</label>
+      <input name="firstname" id="firstname" value="{{ order.user.first_name}}" placeholder="First Name" />
+      <label for="email">Email*</label>
+      <input name="email" id="email" value="{{ order.user.email }}" placeholder="Email" />
+      <label for="phone">Phone*</label>
+      <input name="phone" value="{{ posted.phone|default:''}}" placeholder="Phone No." />
+      <input type="hidden" name="productinfo" value="{{order.id}}" />
+      <input type="hidden" name="surl" value="{{ success_url }}" size="64" />
+      <input type="hidden" name="furl" value="{{ fail_url }}" size="64" />
+      <input type="hidden" name="service_provider" value="payu_paisa" size="64" />
+      <!-- <input type="hidden" name="udf1" value="{{order.id}}" /> -->
+      <h3>Total: <span class="total">₹{{order.total}}</span></h3>
+      <input class="mysubmit" type="submit" value="Proceed To Payment" onclick="submitPayuForm()" />
+      <p class="confirm-submit">*** Click On Proceed To Payment 2 Times: First-confirm, Second-Submit (Do Not Change The
+        Information).</p>
+    </form>
+
+  </div>
+  <div class="checkout-container">
+    <table class="table checkout-table">
+      <thead>
+        <tr>
+          <th scope="col">Image</th>
+          <th scope="col">Course</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="course-img">
+            <img src="{{course.thumbnail.url}}" alt="{{course.title}}">
+          </td>
+          <td>{{course.title}}</td>
+          <td>₹{{ course.price }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

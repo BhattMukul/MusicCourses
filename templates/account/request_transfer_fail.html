@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Request Transfer Failed - MusiLearn{% endblock %}
+
+{% block meta %}
+<meta name="description"
+    content="MusiLearn is an Online Music Course Platform, providing you the cheapest music courses. Learn Guitar, Drums, Piano, Singing, and many more instruments.">
+<meta name="keywords" content="Learn music online, online music courses, online music tutorials">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/account/request_transfer_fail.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="fail-container">
+    <h2>You Can Only Transfer Money If You Have More Than <strong> ₹5000 </strong></h2>
+    <button><a href="{% url 'courses:index' %}">Back To Home</a></button>
+</div>
+{% endblock %}

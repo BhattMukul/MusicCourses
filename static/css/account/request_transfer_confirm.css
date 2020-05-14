@@ -1,0 +1,88 @@
+.transfer-container {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.transfer-table {
+    width: 100%;
+    margin: auto;
+}
+
+.transfer-table table {
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-collapse: separate;
+    border-spacing: 0 7px;
+
+}
+
+.myleft {
+    background-color: #0c1922;
+    color: white;
+    text-transform: uppercase;
+}
+
+.myright {
+    background-color: gainsboro;
+}
+
+.please {
+    margin: 15px 0;
+    color: red;
+}
+
+.yes-btn {
+    border: none;
+    border-radius: 5px;
+    background-color: #0c1922;
+    text-align: center;
+    padding: 5px 50px;
+    color: white;
+}
+
+.yes-btn:hover {
+    background-color: black;
+    transition: 0.2s ease;
+}
+
+.no-btn {
+    border: none;
+    border-radius: 5px;
+    background-color: #0c192286;
+    text-align: center;
+    padding: 5px 50px;
+    margin-top: 15px;
+
+}
+
+.no-btn a {
+    color: white;
+    text-decoration: none;
+}
+
+.no-btn:hover {
+    background-color: black;
+    transition: 0.2s ease;
+}
+
+@media screen and (max-width: 768px) {
+    .transfer-container {
+        width: 95%;
+        margin: auto;
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+
+    .transfer-container table {
+        width: 100%;
+    }
+
+    .please {
+        font-size: 1.2rem;
+    }
+}

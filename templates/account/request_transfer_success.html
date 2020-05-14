@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Request Transfer Failed - MusiLearn{% endblock %}
+
+{% block meta %}
+<meta name="description"
+    content="MusiLearn is an Online Music Course Platform, providing you the cheapest music courses. Learn Guitar, Drums, Piano, Singing, and many more instruments.">
+<meta name="keywords" content="Learn music online, online music courses, online music tutorials">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/account/request_transfer_success.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="success-container">
+    <h2>Your Request Has Been SuccessFully Posted</h2>
+    <h5>Your Amount Will Be Transfer Within 1-2 Business Days</h5>
+    <h5>Now Amount In MusiLearn Account is <strong>₹0</strong></h5>
+    <button><a href="{% url 'courses:index' %}">Back To Home</a></button>
+</div>
+{% endblock %}

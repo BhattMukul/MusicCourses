@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Register - MusiLearn{% endblock %}
+
+{% block meta %}
+<meta name="description"
+    content="Buy Cheapest Music Course online on MusiLearn, An Online Music Course Platform providing online courses on Guitar, Piano, Drums, Singing, and many more.">
+<meta name="keywords" content="buy cheap music course, music courses online, Learn music online">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+{%endblock%}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/account/st_register.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="mysignup-container">
+    <h2>Create A New Account</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+        <p>Already Have an Account ? <a href="{% url 'account:login' %}">Login</a> </p>
+        <button type="submit">Register</button>
+
+    </form>
+</div>
+{% endblock %}
+
+musictorial

@@ -1,0 +1,191 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}MusiLearn - India's Best Online Music Course Website {%endblock%}
+
+{% block meta %}
+<meta name="title" content="MusiLearn - India's Best Online Music Course Website">
+<meta name="description"
+    content="MusiLearn is an Online Music Course Platform, providing you the cheapest music courses. Learn Guitar, Drums, Piano, Singing, and many more instruments.">
+<meta name="keywords" content="Learn music online, online music courses, online music tutorials">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/courses/index.css' %}">
+{%endblock%}
+
+{% block content %}
+<section style="background: linear-gradient(to left, rgba(0, 0, 0, 0.356), rgba(0, 0, 0, 0.73)),
+url('https://musilearn-bucket.s3.amazonaws.com/static/img/cta2.jpg');
+width: 100%;
+height: 400px;
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+background-attachment: fixed;
+color: white;
+text-align: center;" class="cta2" class="bgimage">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="mycta-text col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h1>“Without music, life would be a mistake”</h1>
+                <p><a href="{% url 'account:instructor_profile' %}" class="btn btn-primary btn-large">Teach Now
+                        »</a>
+                    <a class="mybtnlight" href="{% url 'courses:courses_by_category_all' %}">Browse
+                        Courses
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="myindex-container">
+    <form action="{% url 'courses:courses_by_category_all' %}">
+        <input type="text" name="query" placeholder="Seach Course / Instrument">
+    </form>
+</div>
+<div class="myindex-container ">
+    <div class="lat-course">
+        <h2>Latest Courses</h2>
+        <div class="all-courses">
+            {% for course in latest %}
+            <a href="{{course.get_absolute_url}}">
+                <div class="course-item">
+                    <div class="course-item-img">
+                        <img src="{{course.thumbnail.url}}" alt="{{course.title}} thumbnail">
+                    </div>
+                    <div class="course-item-detail">
+                        <h4>{{course.title}}</h4>
+                        <h6>by {{course.tutor.user.first_name}} {{course.tutor.user.last_name}}</h5>
+                            <a href="{{course.category.get_absolute_url}}">
+                                <h5>{{course.category.name}}</h5>
+                            </a>
+                            <span>Rating</span>
+                            {% for i in course.get_rating %}
+                            <i class="fas fa-star"></i>
+                            {% endfor %}
+
+                    </div>
+                    <div class="course-price">
+                        <h3>₹{{course.price}}</h3>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="myindex-container ">
+    <div class="pop-course">
+        <h2>Popular Courses</h2>
+        <div class="all-courses">
+            {% for course in popular %}
+            <a href="{{course.get_absolute_url}}">
+                <div class="course-item">
+                    <div class="course-item-img">
+                        <img src="{{course.thumbnail.url}}" alt="{{course.title}} thumbnail">
+                    </div>
+                    <div class="course-item-detail">
+                        <h4>{{course.title}}</h4>
+                        <h6>by {{course.tutor.user.first_name}} {{course.tutor.user.last_name}}</h5>
+                            <a href="{{course.category.get_absolute_url}}">
+                                <h5>{{course.category.name}}</h5>
+                            </a>
+                            <span>Rating</span>
+                            {% for i in course.get_rating %}
+                            <i class="fas fa-star"></i>
+                            {% endfor %}
+                    </div>
+                    <div class="course-price">
+                        <h3>₹{{course.price}}</h3>
+                    </div>
+                </div>
+            </a>
+
+
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="myindex-container ">
+    <h2 class="mob-course">Courses</h2>
+    <div class="all-courses mob-course">
+        {% for course in courses %}
+        <a href="{{course.get_absolute_url}}">
+            <div class="course-item">
+                <div class="course-item-img">
+                    <img src="{{course.thumbnail.url}}" alt="{{course.title}} thumbnail">
+                </div>
+                <div class="course-item-detail">
+                    <h4>{{course.title}}</h4>
+                    <h6>by {{course.tutor.user.first_name}} {{course.tutor.user.last_name}}</h5>
+                        <a href="{{course.category.get_absolute_url}}">
+                            <h5>{{course.category.name}}</h5>
+                        </a>
+                        <span>Rating</span>
+                        {% for i in course.get_rating %}
+                        <i class="fas fa-star"></i>
+                        {% endfor %}
+                </div>
+                <div class="course-price">
+                    <h3>₹{{course.price}}</h3>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+
+    </div>
+
+
+</div>
+<div class="viewmore-btn">
+    <button class="viewmore"><a href="{% url 'courses:courses_by_category_all'  %}">View
+            More</a></button>
+</div>
+
+<section style="background: linear-gradient(to left, rgba(0, 0, 0, 0.356), rgba(0, 0, 0, 0.73)),
+url('https://musilearn-bucket.s3.amazonaws.com/static/img/cta3.jpeg');
+width: 100vw;
+height: 400px;
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+background-attachment: fixed;
+color: white;
+text-align: center;" class="cta3" class="bgimage">
+    <div class="container-fluid">
+        <div class=" row">
+            <div class="mycta-text col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h1>Wanna Share Some Knowledge ?</h1>
+                <p><a href="{% url 'account:instructor_profile' %}" class="btn btn-primary btn-large">Teach Now
+                        »</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="myindex-container">
+    <h2>Our Stats</h2>
+    <div class="our-stats">
+        <div class="our-stats-block">
+            <h6>{{course_num}}</h6>
+            <h3>Courses</h3>
+        </div>
+        <div class="our-stats-block">
+            <h6>{{students}}</h6>
+            <h3>Students</h3>
+        </div>
+        <div class="our-stats-block">
+            <h6>{{instructors}}</h6>
+            <h3>Instructors</h3>
+        </div>
+    </div>
+</div>
+
+
+
+{%endblock%}

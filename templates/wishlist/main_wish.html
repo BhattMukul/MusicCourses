@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Wish List - MusiLearn{%endblock%}
+
+{% block meta %}
+<meta name="description"
+    content="MusiLearn is an Online Music Course Platform, providing you the cheapest music courses. Learn Guitar, Drums, Piano, Singing, and many more instruments.">
+<meta name="keywords" content="Learn music online, online music courses, online music tutorials">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/wishlist/main_wish.css' %}">
+{%endblock%}
+
+{% block content %}
+<div class="wish-container">
+    <h3>Wish List</h3>
+    {% if all_courses %}
+    {% for course in all_courses %}
+
+    <div class="course-item">
+        <div class="course-img">
+            <img src="{{course.thumbnail.url}}" alt="">
+        </div>
+        <div class="course-detail">
+            <h4>{{course.title|truncatewords:8}}</h4>
+            <h6>by {{course.tutor.user.first_name}} {{course.tutor.user.last_name}} <img width="30px" height="30px"
+                    style="border-radius: 50%;" src="{{course.tutor.profile_pic.url}}"
+                    alt="{{course.tutor.user.first_name}} profile pic"> </h5>
+                <a href="{{course.category.get_absolute_url}}">
+                    <h5>{{course.category.name}}</h5>
+                </a>
+                <span>Rating</span>
+                {% for i in course.get_rating %}
+                <i class="fas fa-star"></i>
+                {% endfor %}
+        </div>
+        <div class=" course-price">
+            <h1>₹{{course.price}}</h1>
+            <button><a href="{{course.get_absolute_url}}">View
+                    ></a></button>
+            <button class="remove"><a
+                    href="{% url 'wishlist:remove_wish' id=course.id slug=course.slug %}">Remove</a></button>
+        </div>
+    </div>
+    {%endfor%}
+    {% else %}
+    <h3 class="else-h3">No Courses In Wish List</h3>
+    <button class="else-button"><a href="{% url 'courses:courses_by_category_all' %}">Browse Courses</a></button>
+    {% endif %}
+</div>
+{%endblock%}

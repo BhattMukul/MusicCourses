@@ -1,0 +1,133 @@
+.cart-head {
+    width: 40%;
+    margin: auto;
+    border-bottom: 1px solid #0a1925;
+}
+
+.cart-head h2 {
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin: 20px 0;
+}
+
+.cart-container {
+    width: 75%;
+    margin: auto;
+    height: 100%;
+    margin-bottom: 100px;
+}
+
+.cart-container table {
+    width: 100%;
+    text-align: center;
+}
+
+.cart-container table thead th {
+    width: 25%;
+}
+
+.cart-container table tbody tr {
+    font-size: 1.25rem;
+    font-weight: 500;
+    align-items: center;
+}
+
+.empty {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.empty h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    margin: 10px 0;
+}
+
+.empty button {
+    background-color: #0a1925;
+    padding: 7px 12px;
+    border: none;
+    border-radius: 5px;
+}
+
+.empty button a {
+    text-decoration: none;
+    color: white;
+}
+
+.myrowimg {
+    width: 25%;
+    height: 150px;
+}
+
+.myrowimg img {
+    width: 100%;
+    height: 100%;
+}
+
+.button-cont button {
+    width: 30%;
+    text-align: center;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    margin-top: 15px;
+    border-radius: 7px;
+    float: right;
+}
+
+.myb1 {
+    background-color: #0c1922;
+    color: #fff;
+    border: none;
+}
+
+.myb1:hover {
+    background-color: #04090c;
+    transition: 0.2s ease;
+}
+
+.myb2 {
+    border: 2px solid #0c1922;
+    color: #0c1922;
+    margin-right: 20px;
+}
+
+.myb2:hover {
+    background-color: rgb(230, 220, 220);
+    transition: 0.2s ease;
+}
+
+@media screen and (max-width: 768px) {
+    .cart-container {
+        width: 90%;
+        margin: auto;
+        margin-bottom: 150px;
+    }
+
+    .myrowimg img {
+        height: 50%;
+    }
+
+    .button-cont {
+        width: 90%;
+        margin: auto;
+        text-align: center;
+
+    }
+
+    .myb2 {
+        margin-right: 0% !important;
+    }
+
+    .button-cont button {
+        width: 100%;
+    }
+}

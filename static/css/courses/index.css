@@ -1,0 +1,259 @@
+.bgimage {
+    color: white;
+    text-align: center;
+}
+
+.bgimage h1 {
+    font-size: 3rem;
+    padding-bottom: 2rem;
+    margin-top: 100px;
+}
+
+.bgimage a {
+    font-size: 1.25rem;
+}
+
+.myindex-container {
+    width: 90%;
+    margin: auto;
+    color: #0c1922;
+}
+
+.myindex-container h2 {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 10px;
+    width: 40%;
+    margin: auto;
+    border-bottom: 1px solid #0c1922;
+    text-transform: uppercase;
+    letter-spacing: 1.25px;
+    margin-bottom: 15px;
+}
+
+
+.all-courses {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.course-item {
+    width: 275px;
+    height: 350px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    background-color: rgba(243, 236, 236, 0.753);
+}
+
+.course-item:hover {
+    box-shadow: 0 0 10px #0c1922;
+}
+
+.course-item h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    height: 40%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.course-item-detail {
+    width: 95%;
+    height: 30%;
+    margin: auto;
+}
+
+.course-item h5 {
+    font-size: 0.8rem;
+    color: rgb(0, 76, 218);
+}
+
+.course-item h5:hover {
+    color: rgb(0, 31, 88);
+}
+
+.course-item h6 {
+    font-size: 1rem;
+    color: gray;
+}
+
+.course-item-img {
+    width: 100%;
+    height: 50%;
+    margin-bottom: 10px;
+}
+
+.course-item-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.course-price {
+    width: 95%;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.course-price h3 {
+    font-weight: 700;
+
+}
+
+.our-stats {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.our-stats-block {
+    width: 33%;
+    margin: 30px 0;
+}
+
+.our-stats-block h6 {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.our-stats-block h3 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgb(145, 7, 53);
+}
+
+.cta2 {
+    
+}
+
+.cta3 {
+
+}
+
+.mycta-text {
+    margin-top: 20vh;
+}
+
+.myindex-container form {
+    display: none;
+}
+
+section a {
+    background-color: #0c1922 !important;
+    border: #0c1922 !important;
+    color: white;
+    text-decoration: none;
+}
+
+.mybtnlight {
+    background-color: #0c1922a1 !important;
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px 10px 10px;
+
+}
+
+.mybtnlight:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #0c1922 !important;
+}
+
+.all-courses a {
+    text-decoration: none;
+    color: #0c1922;
+}
+
+.all-courses span {
+    font-size: 0.75rem;
+    color: grey;
+}
+
+.all-courses i {
+    font-size: 0.75rem;
+    color: gold;
+}
+
+.viewmore-btn{
+    width: 100%;
+    height: 60px;
+    margin: 25px 0 ;
+    text-align: center;
+
+}
+
+.viewmore {
+    background-color: #0c1922;
+    border-radius: 5px;
+    border: none;
+    padding: 7px 15px;
+    margin-bottom: 50px;
+}
+
+.viewmore a {
+    text-decoration: none;
+    color: white;
+}
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    .mycta-text {
+        margin-top: 30%;
+        transform: translateY(-50%);
+    }
+
+    .lat-course {
+        display: none;
+    }
+
+    .pop-course {
+        display: none;
+    }
+
+    /* .course-item {
+        width: 95%;
+        margin: auto;
+        margin-bottom: 20px;
+        border: 0.2px solid #0c1922;
+    } */
+
+    .our-stats-block h3 {
+        font-size: 1.15rem;
+    }
+
+    .myindex-container form {
+        display: inline;
+        width: 95%;
+        margin: auto;
+    }
+
+    .myindex-container form input {
+        box-shadow: 0 0 10px #0c1922;
+        width: 100%;
+        margin: 10px 0;
+        border: 2px solid #0c1922;
+        border-radius: 25px;
+        padding: 5px 15px;
+
+    }
+
+    .myindex-container form input:focus {
+        box-shadow: 0 0 20px #0c1922;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+    .course-item {
+        width: 95%;
+        margin: auto;
+        margin-bottom: 20px;
+        border: 0.2px solid #0c1922;
+    }
+}

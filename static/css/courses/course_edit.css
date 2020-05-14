@@ -1,0 +1,150 @@
+.add-main-container {
+    width: 95%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.add-main-container h2 {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.add-container {
+    width: 50%;
+    margin: auto;
+}
+
+.add-container button {
+    margin: 15px;
+    color: white;
+    background-color: rgb(8, 22, 34);
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.15rem;
+    padding: 7px 12px;
+    text-align: center;
+}
+
+
+.add-container form {
+    width: 90%;
+    margin: auto;
+}
+
+.add-container form label {
+    margin: 7px 0;
+}
+
+.add-side-container {
+    width: 39%;
+}
+
+.add-side-container button {
+    margin: 15px;
+    color: white;
+    background-color: rgb(8, 22, 34);
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.15rem;
+    padding: 7px 12px;
+    text-align: center;
+
+}
+
+.add-side-container button a {
+    color: white;
+    text-decoration: none;
+}
+
+.add-side-container h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.add-side-container h6 {
+    text-align: center;
+}
+
+.other-video {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 0.5px solid #0c1922;
+    height: 60px;
+    margin-bottom: 10px;
+
+}
+
+.other-img {
+    width: 30%;
+    height: 100%;
+}
+
+.other-img img {
+    width: 100%;
+    height: 100%;
+
+}
+
+.other-name {
+    width: 65%;
+}
+
+.other-name a {
+    color: rgb(5, 17, 20);
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 550;
+}
+
+#uploading-spin {
+    opacity: 0;
+}
+
+#uploading-text {
+    font-weight: 700;
+    opacity: 0;
+}
+
+.title-image {
+    width: 300px;
+    height: 175px;
+    margin: auto;
+}
+
+.title-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.mycaution {
+    color: red;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 768px) {
+    .add-main-container {
+        flex-direction: column;
+    }
+
+    .add-container {
+        width: 90%;
+        margin: auto;
+        margin-bottom: 25px;
+    }
+
+    .add-side-container {
+        width: 90%;
+        margin: auto;
+        margin-bottom: 25px;
+    }
+}

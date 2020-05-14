@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{% if cate %}
+{{cate.name}} Courses-MusiLearn
+{% else %}
+Online Music Courses - MusiLearn
+{% endif %}
+{%endblock%}
+
+{% block meta %}
+{% if cate %}
+<meta name="description" content="{{cate.meta_desc}}">
+<meta name="keywords" content="{{cate.meta_key}}">
+{% else %}
+<meta name="description"
+    content="Buy Cheapest Music Course online on MusiLearn, An Online Music Course Platform providing online courses on Guitar, Piano, Drums, Singing, and many more.">
+<meta name="keywords" content="buy cheap music course, music courses online, Learn music online">
+{% endif %}
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+{%endblock%}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/courses/by_categories.css' %}">
+{%endblock%}
+
+{% block content %}
+
+<div class="courses-container">
+    <form>
+        <input type="text" name="query" placeholder="Search Instrument">
+        <button class="cat-active" type="submit">Search <i class="fas fa-search"></i></button>
+    </form>
+    <div class="all-category-link">
+        <a class="cat-active" href="{% url 'courses:courses_by_category_all' %}">All</a>
+        {% for cat in categories %}
+        <a class="{% ifequal cat.slug  category_slug %}cat-active{% endifequal %}"
+            href="{{cat.get_absolute_url}}">{{cat.name}}</a>
+        {% endfor %}
+    </div>
+    <div class="all-courses-container">
+        {% if courses %}
+        <h3>{% if category_slug %}{{cate.name}} {% else %}All {% endif%}Courses
+            <span>Total:{{course_count}}</span>
+        </h3>
+        {% if q %}
+        <h5>You Have Searched For: <strong>{{q}}</strong></h5>
+        {% endif %}
+        {% for course in courses %}
+
+        <div class="course-item">
+            <div class="course-img">
+                <img src="{{course.thumbnail.url}}" alt="">
+            </div>
+            <div class="course-detail">
+                <h4>{{course.title|truncatewords:8}}</h4>
+                <h6>by {{course.tutor.user.first_name}} {{course.tutor.user.last_name}} <img width="30px" height="30px"
+                        style="border-radius: 50%;" src="{{course.tutor.profile_pic.url}}"
+                        alt="{{course.tutor.user.first_name}} profile pic"> </h5>
+                    <a href="{{course.category.get_absolute_url}}">
+                        <h5>{{course.category.name}}</h5>
+                    </a>
+
+                    <span>Rating:</span>
+                    {% ifequal course.get_rating 0 %}
+                    <span>Not Rated</span>
+                    {% else %}
+                    {% for i in course.get_rating %}
+                    <i class="fas fa-star"></i>
+                    {% endfor %}
+                    {% endifequal %}
+
+            </div>
+            <div class=" course-price">
+                <h1>₹{{course.price}}</h1>
+                <button>
+                    <a href="{{course.get_absolute_url}}">View
+                        ></a>
+                </button>
+            </div>
+        </div>
+        {%endfor%}
+        <div style="width: 100%;text-align: center;" class="pagination">
+            <span style="width: 100%;text-align: center;" class="step-links">
+                {% if courses.has_previous %}
+                <a href="?page=1">
+                    <<< </a>
+                        <a href="?page={{ courses.previous_page_number }}">
+                            < </a>
+                                {% endif %}
+
+                                <span class="current">
+                                    Page {{ courses.number }} of {{ courses.paginator.num_pages }}.
+                                </span>
+
+                                {% if courses.has_next %}
+                                <a href="?page={{ courses.next_page_number }}">></a>
+                                <a href="?page={{ courses.paginator.num_pages }}">>>></a>
+                                {% endif %}
+            </span>
+        </div>
+        {% else %}
+        {% if q %}
+        <h5>You Have Searched For: <strong>{{q}}</strong></h5>
+        {% endif %}
+        <h2>No Courses Available</h2>
+        {% endif %}
+    </div>
+</div>
+{%endblock%}

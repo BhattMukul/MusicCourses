@@ -1,0 +1,58 @@
+<div style="width: 60%;
+margin: auto;
+text-align: center;
+margin-top: 25px;
+margin-bottom: 25px;
+color: #0c1922;" class="transfer-container">
+    <header style="width: 100%;
+    height: 100%;
+    background-color: #0c1922;">
+        <center>
+            <h1 style="color: white;margin: 10px 0;">MusiLearn</h1>
+        </center>
+    </header>
+    <div style="width: 100%;
+    margin: auto;" class="transfer-table">
+        <h2>Request Refund</h2>
+        <p>For <strong>{{course.title}}</strong></p>
+        <table style="width: 60%;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-collapse: separate;
+        border-spacing: 0 7px;">
+            <tr>
+                <td style="background-color: #0c1922;
+                color: white;
+                text-transform: uppercase;" class="myleft">Username</td>
+                <td style="background-color: gainsboro;" class="myright">{{username}}</td>
+            </tr>
+            <tr>
+                <td style="background-color: #0c1922;
+                color: white;
+                text-transform: uppercase;" class="myleft">Email</td>
+                <td style="background-color: gainsboro;" class="myright">{{email}}</td>
+            </tr>
+            <tr>
+                <td style="background-color: #0c1922;
+                color: white;
+                text-transform: uppercase;" class="myleft">Order Id</td>
+                <td style="background-color: gainsboro;" class="myright">{{order_id}}</td>
+            </tr>
+            <tr>
+                <td style="background-color: #0c1922;
+                color: white;
+                text-transform: uppercase;" class="myleft">TXN ID</td>
+                <td style="background-color: gainsboro;" class="myright">{{txn_id}}</td>
+            </tr>
+        </table>
+        <table style="width: 60%;margin: auto;">
+            <thead style="padding: 10px;text-align: center;background-color: #0c1922;">
+                <h3 style="color: white;">Refund Reason</h3>
+            </thead>
+            <tbody style="background-color: gainsboro;">
+                <p style="padding: 5px;">{{reason|linebreaks}}</p>
+            </tbody>
+        </table>
+    </div>
+</div>

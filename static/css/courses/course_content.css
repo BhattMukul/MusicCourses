@@ -1,0 +1,377 @@
+.mycontainer {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    height: 800px;
+}
+
+.course-main-container {
+    width: 70%;
+    margin: 20px 0;
+    border: 0.5px solid #0c1922;
+    border-radius: 5px;
+}
+
+.course-side-container {
+    width: 28%;
+    margin: 0;
+    margin: 20px 0;
+    overflow-y: scroll;
+    /* scroll-behavior: smooth; */
+
+}
+
+.course-block h2 {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.course-item {
+    width: 85%;
+    height: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.course-detail {
+    width: 70%;
+    height: 100%;
+
+}
+
+.course-img {
+    width: 28%;
+    height: 100%;
+    margin-top: 25px;
+    border: 2px solid white;
+    box-shadow: 0 0 10px white;
+}
+
+.course-img img {
+    height: 100%;
+    width: 100%;
+
+}
+
+
+
+.course-block {
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.tutor-block {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.tutor-image {
+    width: 30%;
+    text-align: center;
+}
+
+.tutor-image h4 {
+    font-size: 1.75rem;
+    font-weight: 650;
+}
+
+.tutor-image h4 span {
+    font-weight: 400;
+}
+
+.tutor-image img {
+    width: 50%;
+    margin: auto;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.tutor-detail {
+    width: 69%;
+}
+
+.tutor-detail h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.tutor-detail p {
+    font-size: 0.8rem;
+}
+
+.other-video {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 0.5px solid #0c1922;
+    height: 50px;
+    margin-bottom: 10px;
+
+}
+
+.other-img {
+    width: 30%;
+    height: 100%;
+    float: left;
+}
+
+.other-img img {
+    width: 100%;
+    height: 100%;
+
+}
+
+.other-name {
+    width: 50%;
+    padding-left: 15px;
+    text-overflow: ellipsis;
+    
+}
+
+.other-duration {
+    width: 20%;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.other-duration p {
+    padding-left: 5px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    align-items: center;
+}
+
+.other-name a {
+    font-size: 0.85rem !important;
+}
+
+.other-active {
+    box-shadow: 0 0 7px #0c1922;
+    background-color: #0c1922;
+    border: none !important;
+    color: white !important;
+
+}
+
+.course-block form {
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+.course-block form input {
+    background-color: transparent;
+    padding-bottom: 5px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #0c1922;
+    margin-bottom: 5px;
+}
+
+.course-title {
+    font-size: 2rem !important;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.course-block button {
+    background-color: #0c1922;
+    color: white;
+    text-align: center;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 7px;
+    float: right;
+    border: none;
+    border-radius: 5px;
+}
+
+.course-block button:hover {
+    background-color: #040e14;
+}
+
+.star-form {
+    float: left;
+}
+
+.num-form {
+    float: left;
+    margin-top: -35px;
+    font-weight: 500;
+}
+
+.num-form button {
+    font-weight: 700;
+}
+
+.num-form #btn1 {
+    margin: 0 10px;
+}
+
+.num-form #btn2 {
+    margin: 0 6px;
+}
+
+.num-form #btn3 {
+    margin-left: 12px;
+}
+
+.num-form #btn4 {
+    margin-left: 17px;
+}
+
+.num-form #btn5 {
+    margin-left: 18px;
+}
+
+.comment-title {
+    margin-left: 35px;
+}
+
+.comment-title span {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.comment-image {
+    width: 40px;
+    height: 40px;
+}
+
+.comment-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.rate-form button {
+    float: left;
+    background-color: transparent;
+    color: #0c1922;
+}
+
+.rate-form button:hover {
+    background-color: transparent;
+    color: #0c1922;
+}
+
+
+.rate-form i {
+    font-size: 1.5rem;
+    color: #0c1922;
+}
+
+.one:hover {
+    transition: 0.2s ease;
+    color: rgba(255, 217, 0, 0.6) !important;
+}
+
+.two:hover {
+    transition: 0.2s ease;
+    color: rgba(255, 217, 0, 0.7) !important;
+}
+
+.three:hover {
+    transition: 0.2s ease;
+    color: rgba(255, 217, 0, 0.8) !important;
+}
+
+.four:hover {
+    transition: 0.2s ease;
+    color: rgba(255, 217, 0, 0.9) !important;
+}
+
+.five:hover {
+    transition: 0.2s ease;
+    color: rgb(255, 217, 0) !important;
+}
+
+.other-cont {
+    width: 85%;
+    margin: auto;
+    border: 0.5px solid #0c1922;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+
+.other-name a {
+    color: #0c1922;
+    text-decoration: none;
+    font-size: 1.15rem;
+    font-weight: 550;
+}
+
+.current-video {
+    color: #fff !important;
+
+}
+
+.des-p {
+    font-size: 1.1rem;
+}
+
+.no-rev {
+    text-align: center;
+}
+
+.rev-p {
+    margin-left: 50px;
+    margin-right: 25px;
+}
+
+.can-refund {
+    text-align: center;
+}
+
+.other-duration{
+    margin-right: 10px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .mycontainer {
+        width: 100%;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .course-main-container {
+        width: 90%;
+        margin: auto;
+        margin-top: 15px;
+    }
+
+    .course-side-container {
+        width: 400px;
+        margin: auto;
+        margin-top: 15px;
+        overflow: hidden;
+    }
+
+    .course-side-container h2{
+        text-align: center;
+    }
+
+    .other-cont {
+        width: 90%;
+        margin: auto;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .course-title {
+        font-size: 1.25rem !important;
+    }
+}

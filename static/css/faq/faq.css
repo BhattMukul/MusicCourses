@@ -1,0 +1,82 @@
+.faq-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 25px 0;
+}
+
+.faq-main-container {
+    width: 70%;
+    border: 0.5px solid #0c1922;
+    padding: 25px 30px;
+    border-radius: 10px;
+}
+
+.faq-main-container img {
+    width: 70%;
+    margin: auto;
+    border: 1.5px solid #0c1922;
+    box-shadow: 0 0 5px #0c1922;
+}
+
+.faq-main-container p {
+    font-size: 1.15rem;
+}
+
+.faq-side-container {
+    width: 27%;
+    border: 0.5px solid #0c1922;
+    border-radius: 10px;
+}
+
+.faq-side-container h4 {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.gotosupport{
+    width: 100%;
+    text-align: center;
+}
+
+.gotosupport button{
+    text-align: center;
+    background-color: #0c1922;
+    border: none;
+    color: white;
+    margin: 15px 0;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.gotosupport button a{
+    text-decoration: none;
+    text-align: center;
+    color: white;
+
+}
+
+@media screen and (max-width: 768px) {
+    .faq-container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .faq-main-container {
+        width: 95%;
+        margin: auto;
+        border: none;
+    }
+
+    .faq-main-container img {
+        width: 100%;
+    }
+
+    .faq-side-container {
+        width: 75%;
+        margin: auto;
+        margin-top: 25px;
+        border: none;
+    }
+
+
+}

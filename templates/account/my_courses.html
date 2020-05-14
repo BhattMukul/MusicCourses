@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}My Courses - MusiLearn{% endblock %}
+
+{% block meta %}
+<meta name="description"
+    content="Buy Cheapest Music Course online on MusiLearn, An Online Music Course Platform providing online courses on Guitar, Piano, Drums, Singing, and many more.">
+<meta name="keywords" content="buy cheap music course, music courses online, Learn music online">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+{%endblock%}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/account/my-courses.css' %}">
+{% endblock %}
+
+
+{% block content %}
+{% include 'profile_nav.html' %}
+
+<div class="main-container">
+    <div class="my-container">
+        <h2>My Courses</h2>
+        {% if mycourses %}
+        {% for course in mycourses %}
+
+        <div class="course-item my-courses">
+            <div class="course-img">
+                <img src="{{course.thumbnail.url}}" alt="">
+            </div>
+            <div class="course-detail">
+                <h4>{{course.title|truncatewords:8}}</h4>
+                <h6>by {{course.tutor.user.first_name}} {{course.tutor.user.last_name}} <img width="30px" height="30px"
+                        style="border-radius: 50%;" src="{{course.tutor.profile_pic.url}}"
+                        alt="{{course.tutor.user.first_name}} profile pic"> </h5>
+                    <a href="{{course.category.get_absolute_url}}">
+                        <h5>{{course.category.name}}</h5>
+                    </a>
+                    <span>Rating</span>
+                    {% for i in course.get_rating %}
+                    <i class="fas fa-star"></i>
+                    {% endfor %}
+            </div>
+            <button><a href="{{course.get_course_content}}">View ></a></button>
+        </div>
+        {%endfor%}
+        {% else %}
+        <div class="myelse">
+            <p>You Haven't Enrolled In Any Course</p>
+            <button><a href="{% url 'courses:index' %}">Browse Courses</a></button>
+        </div>
+        {% endif %}
+    </div>
+    <div class="by-container">
+        <h2>Courses By Me</h2>
+        <button class="new-button"><a href="{% url 'course_add' %}">Add New Course</a></button>
+        {% if mycourses_by %}
+        {% for course in mycourses_by %}
+
+        <div class="course-item">
+            <div class="course-img">
+                <img src="{{course.thumbnail.url}}" alt="">
+            </div>
+            <div class="course-detail">
+                <h4>{{course.title|truncatewords:8}}</h4>
+                <h6>by {{course.tutor.user.first_name}} {{course.tutor.user.last_name}} <img width="30px" height="30px"
+                        style="border-radius: 50%;" src="{{course.tutor.profile_pic.url}}"
+                        alt="{{course.tutor.user.first_name}} profile pic"> </h5>
+                    <a href="{{course.category.get_absolute_url}}">
+                        <h5>{{course.category.name}}</h5>
+                    </a>
+                    <span>Rating</span>
+                    {% for i in course.get_rating %}
+                    <i class="fas fa-star"></i>
+                    {% endfor %}
+                    <h5>Students Enrolled: <strong>{{course.students.count}}</strong></h5>
+            </div>
+            <button class="edit-button"><a href="{% url 'course_edit' id=course.id slug=course.slug  %}">Edit
+                    ></a></button>
+
+            <button><a href="{{course.get_course_content}}">View ></a></button>
+
+        </div>
+        {%endfor%}
+        {% else %}
+        <div class="myelse">
+            <p>Wanna Teach ?</p>
+            <button><a href="{% url 'account:instructor_profile' %}">Proceed</a></button>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

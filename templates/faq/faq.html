@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+FAQs- {{faq.question}} - MusiLearn
+{% endblock %}
+
+{% block meta %}
+<meta name="description"
+    content="MusiLearn is an Online Music Course Platform, providing you the cheapest music courses. Learn Guitar, Drums, Piano, Singing, and many more instruments.">
+<meta name="keywords" content="Learn music online, online music courses, online music tutorials">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/faq/faq.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="faq-container">
+    <div class="faq-main-container">
+        <h3>{{faq.question}} ?</h3>
+        <p>{{faq.answer1 | linebreaks}}</p>
+        {% if faq.faq_img1 %}
+        <img src="{{faq.faq_img1.url}}" alt="faq1">
+        {% endif %}
+        {% if faq.answer2 %}
+        <p>{{faq.answer2 | linebreaks}}</p>
+        {% endif %}
+        {% if faq.faq_img2 %}
+        <img src="{{faq.faq_img2.url}}" alt="faq1">
+        {% endif %}
+        {% if faq.answer3 %}
+        <p>{{faq.answer3 | linebreaks}}</p>
+        {% endif %}
+        {% if faq.faq_img3 %}
+        <img src="{{faq.faq_img3.url}}" alt="faq1">
+        {% endif %}
+    </div>
+    <div class="faq-side-container">
+        <h4>FAQs</h4>
+        <ul>
+            {% for faq in allfaqs %}
+            <li><a href="{% url 'faq:partfaq' id=faq.id %}">{{faq.question}}</a></li>
+            {% endfor %}
+        </ul>
+        <div class="gotosupport">
+            <button><a href="{% url 'support' %}">Go To Support</a></button>
+        </div>
+    </div>
+</div>
+{% endblock %}

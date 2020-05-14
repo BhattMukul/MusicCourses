@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+{{course.title}} - MusiLearn
+{%endblock%}
+
+{% block meta %}
+<meta name="description" content="{{course.description|truncatechars:160}}">
+<meta name="keywords" content="{{course.category.meta_key}}">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+{%endblock%}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/courses/course_content.css' %}">
+{%endblock%}
+
+{% block content %}
+<div class="mycontainer">
+    <div class="course-main-container">
+        <div class="course-block">
+            <h2 class="course-title">
+                {{course.title}}</h2>
+            <video width="100%" controls>
+                <source src="{{current_video.video.url}}" type="video/mp4">
+                <source src="{{current_video.video.url}}" type="video/ogg">
+                Your browser does not support HTML5 video.
+            </video>
+            <span style="font-size: 0.75rem; font-weight: 500;">***If Video Controls Not
+                Working Properly Refresh The
+                Page</span>
+        </div>
+        <div class="course-block">
+            <h2>{{current_video.title}}</h2>
+
+        </div>
+        {% if can_refund %}
+        <div class="can-refund">
+            <p>Want To Refund This Course ? <a href="{% url 'request_refund' id=course.id %}">click here</a></p>
+        </div>
+        {% endif %}
+
+        <div class="course-block">
+            <h2>Rate This Course ?</h2>
+        </div>
+        {% if rated %}
+        <h6 style="text-align: center;">Thanks For Rating ,You Have Already Rated For This Course...</h6>
+        {% else %}
+        <div class="course-block">
+            <form class="rate-form star-form" method="GET">
+                <button type="submit" name="rate" value="1"><i class="fas fa-star one"></i></button>
+                <button type="submit" name="rate" value="2"><i class="fas fa-star two"></i></button>
+                <button type="submit" name="rate" value="4"><i class="fas fa-star three"></i></button>
+                <button type="submit" name="rate" value="3"><i class="fas fa-star four"></i></button>
+                <button type="submit" name="rate" value="5"><i class="fas fa-star five"></i></button>
+            </form>
+            <form class="rate-form num-form">
+                <button id="btn1">1</button>
+                <button id="btn2">2</button>
+                <button id="btn3">3</button>
+                <button id="btn4">4</button>
+                <button id="btn5">5</button>
+            </form>
+
+        </div>
+        {% endif %}
+
+    </div>
+    <div class="course-side-container">
+        <h2>Course Content</h2>
+        {% for video in videos %}
+        <div class="other-video {% ifequal video_id video.id %}other-active{% endifequal %}">
+            <div class="other-img">
+                <img src="{{course.thumbnail.url}}" alt="{{video.title}}">
+            </div>
+            <div class="other-name">
+                {% ifequal video_id video.id %}
+                <a class="current-video" href="{{video.get_absolute_url}}">{{video.title|truncatewords:5}}</a>
+                {% else %}
+                <a href="{{video.get_absolute_url}}">{{video.title|truncatewords:5}}</a>
+                {% endifequal %}
+
+            </div>
+            <div class="other-duration">
+                <p>{{video.video_length_in_min}} min</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="other-cont">
+    <div class="course-block">
+        <h2>Description</h2>
+        <p class="des-p">{{course.description|linebreaks}}</p>
+    </div>
+    <div class="course-block">
+        <h2>Author Of Course</h2>
+    </div>
+    <div class="course-block tutor-block">
+        <div class="tutor-image">
+            <img src="{{course.tutor.profile_pic.url}}" alt="{{course.tutor.user.first_name}}">
+            <h4>{{course.tutor.user.first_name}} {{course.tutor.user.last_name}}</h4>
+            <h4> <span>Age: </span>{{course.tutor.age}}</h4>
+        </div>
+        <div class="tutor-detail">
+            <h2>
+                About Author</h2>
+            <p>{{course.tutor.about_yourself|linebreaks}}</p>
+        </div>
+    </div>
+    <hr>
+    <div class="course-block">
+        <h2>Reviews</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit">Post</button>
+        </form>
+    </div>
+    {% if reviews %}
+    {% for review in reviews  %}
+    <div class="comment-title">
+        <div class="comment-image">
+            <img src="{{review.user.profile_pic.url}}" alt="">
+        </div>
+        <span>{{review.user.user.first_name}}
+            {{review.user.user.last_name}}</span>
+    </div>
+    <p class="rev-p">{{review.review}}</p>
+
+    {% endfor %}
+    {% else %}
+    <h5 class="no-rev">No Review</h5>
+    {% endif %}
+</div>
+
+{%endblock%}

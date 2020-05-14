@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Cart - MusiLearn{%endblock%}
+
+{% block meta %}
+<meta name="description"
+    content="MusiLearn is an Online Music Course Platform, providing you the cheapest music courses. Learn Guitar, Drums, Piano, Singing, and many more instruments.">
+<meta name="keywords" content="Learn music online, online music courses, online music tutorials">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+
+{% endblock %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/cart/cart_detail.css' %}">
+{%endblock%}
+
+
+
+{% block content %}
+<div class="cart-head">
+    <h2>
+        Your Cart</h2>
+</div>
+
+<div class="cart-container">
+    {% if not cart_item %}
+    <div class="empty">
+        <h2>
+            Your Cart Is Empty</h2>
+        <button><a href="{% url 'courses:index' %}">Browse
+                Courses</a></button>
+    </div>
+    {% else %}
+    <br>
+    <table class=" table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Course Image</th>
+                <th scope="col">Course</th>
+                <th scope="col">Tutor</th>
+                <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart_item %}
+            <tr>
+                <th class="myrowimg" scope="row"><img src="{{item.course.thumbnail.url}}" alt=""></th>
+                <td>{{item.course.title}}</td>
+                <td>{{item.course.tutor.user.first_name}} {{item.course.tutor.user.last_name}}</td>
+                <td>₹{{item.course.price}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button
+        style="background-color: #0a1925;border: none;border-radius: 5px;text-transform: uppercase;padding: 5px 10px;"><a
+            style="color: white;text-decoration: none;" href="{%url 'cart:cart_delete' %}">Remove Course</a></button>
+    <h4 style="text-align: right;font-size: 1.5rem;text-transform: uppercase;letter-spacing: 1.25px;">Total Amout:
+        <strong>₹{{total}}</strong> </h4>
+    <div class="button-cont">
+        <form method="POST">
+            {% csrf_token %}
+            <button style="color: white;text-decoration: none;" type="submit" class="myb1">Proceed To
+                Checkout <i class="far fa-credit-card"></i></button>
+        </form>
+        <button class="myb2"> <a style="color: #0a1925;text-decoration: none;"
+                href="{% url 'courses:courses_by_category_all' %}"> Choose Other Course <i class="fas fa-retweet">
+                </i></a></button>
+    </div>
+    {% endif %}
+</div>
+{%endblock%}

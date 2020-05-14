@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Request Transfer - MusiLearn{% endblock %}
+
+{% block meta %}
+<meta name="description"
+    content="MusiLearn is an Online Music Course Platform, providing you the cheapest music courses. Learn Guitar, Drums, Piano, Singing, and many more instruments.">
+<meta name="keywords" content="Learn music online, online music courses, online music tutorials">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/account/request_transfer_confirm.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="transfer-container">
+    <div class="transfer-table">
+        <h2>Request Money Transfer</h2>
+        <table>
+            <tr>
+                <td class="myleft">Name</td>
+                <td class="myright">{{instructor.user.first_name}} {{instructor.user.last_name}}</td>
+            </tr>
+            <tr>
+                <td class="myleft">Email</td>
+                <td class="myright">{{instructor.user.email}}</td>
+            </tr>
+            <tr>
+                <td class="myleft">Bank Account Name</td>
+                <td class="myright">{{instructor.bank_account_name}}</td>
+            </tr>
+            <tr>
+                <td class="myleft">Bank Name</td>
+                <td class="myright">{{instructor.bank_name}}</td>
+            </tr>
+            <tr>
+                <td class="myleft">Bank Account Number</td>
+                <td class="myright">{{instructor.bank_account_number}}</td>
+            </tr>
+            <tr>
+                <td class="myleft">Bank Account Type</td>
+                <td class="myright">{{instructor.bank_account_type}}</td>
+            </tr>
+            <tr>
+                <td class="myleft">IFSC Code</td>
+                <td class="myright">{{instructor.IFSC_code}}</td>
+            </tr>
+            <tr>
+                <td class="myleft">Amount</td>
+                <td class="myright"><strong>₹{{instructor.credits_15}}</strong></td>
+            </tr>
+        </table>
+        <p>Want To Change Information ? <a href="{% url 'account:instructor_profile' %}">Click Here</a></p>
+    </div>
+    <div class="transfer-form">
+        <form method="POST">
+            {% csrf_token %}
+            <h3>Are You Sure To Request Transfer ?</h3>
+            <button class="yes-btn" type="submit">Yes</button>
+        </form>
+        <button class="no-btn"><a href="{% url 'account:instructor_profile' %}">No</a></button>
+    </div>
+    <h4 class="please">***Please Fill Correct Details, If Details Are Incorrect You Will Loose All Your Money.</h4>
+</div>
+{% endblock %}

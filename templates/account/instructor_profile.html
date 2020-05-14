@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Instructor Profile- MusiLearn{% endblock %}
+
+{% block meta %}
+<meta name="description"
+    content="Earn with your Passion, Teach on MusiLearn An Online Music Course Platform by adding music courses.Teach Guitar, Drums, Piano, Singing, and many more.">
+<meta name="keywords" content="Teach music online, teach music courses online, teach on MusiLearn">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/account/instructor_profile.css' %}">
+{% endblock %}
+
+{% block content %}
+{% include 'profile_nav.html' %}
+<div class="myinstprofile-container">
+    {% if is_instructor %}
+    <h2>Instructor Profile</h2>
+    <img src="{{instructor.profile_pic.url}}" alt="">
+    <h1>@{{instructor.user.username}}</h1>
+    <form class="inst_form" method="POSt" enctype="multipart/form-data">
+        <h2>Instructor Details</h2>
+        {% csrf_token %}
+        {{form|crispy}}
+        <button type="submit">Update</button>
+    </form>
+    <div class="payment-detail">
+        <h2>Payment Detail</h2>
+        <div class="total-amount">
+            <h3>Total Amount Earned</h3>
+            <p>₹{{instructor.total_credits}}</p>
+        </div>
+        <div class="remaining-amount">
+            <h3>Amount in MusiLearn Account</h3>
+            <p>₹{{instructor.credits_15}}</p>
+            <h6><a href="{% url 'faq:partfaq' id=6 %}">Click Here</a> To See How To Transfer Money To Your Bank Account
+                ?
+            </h6>
+            <form>
+                <button><a style="text-decoration: none;color: white;"
+                        href="{% url 'account:request_transfer' id=instructor.id %}">Request Transfer</a></button>
+            </form>
+        </div>
+    </div>
+    <div class="myprofile-details">
+        <h2>Details</h2>
+        <table style="margin: auto;" class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Date Joined</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{instructor.user.first_name}}</td>
+                    <td>{{instructor.user.last_name}}</td>
+                    <td>{{instructor.user.email}}</td>
+                    <td>{{instructor.created|date}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="pass-reset">
+        <h2>Change Password</h2>
+        <form>
+            <button style="margin-bottom: 50px;"><a style="text-decoration: none;color: white;"
+                    href="{% url 'password_reset' %}">Change
+                    Password</a></button>
+        </form>
+    </div>
+    <h6><a href="{% url 'faq:partfaq' id=1 %}">Click Here</a> To See How To Add New Course ?
+    </h6>
+    <div class="new-course">
+        <button><a style="text-decoration: none;color: white;" href="{% url 'course_add' %}">ADD NEW COURSE</a></button>
+    </div>
+    {% else %}
+    <h2 style="text-align:centre;">
+        Wanted To Become Instructor ?
+    </h2>
+    <h6><a href="{% url 'faq:partfaq' id=3 %}">Click Here</a> To See How To Become Instructor ?
+    </h6>
+    <h6><a href="{% url 'faq:partfaq' id=4 %}">Click Here</a> To See How To Earn Money Instructor and How Much You Will
+        Get On Purchase Of Course Made By You ?
+    </h6>
+    <form>
+        <button><a style="color: white;text-decoration: none;"
+                href="{% url 'account:create_instructor' %}">Proceed</a></button>
+    </form>
+    {% endif %}
+</div>
+
+{% endblock %}

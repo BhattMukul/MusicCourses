@@ -1,0 +1,170 @@
+.myprofile-container {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    color: #0c1922;
+}
+
+.myprofile-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.myprofile-container h2 {
+    font-size: 1.25rem;
+    margin: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #0c192286;
+}
+
+.myprofile-details {
+    width: 100%;
+    margin: auto;
+
+}
+
+
+.myprofile-container form label {
+    display: none
+}
+
+.myprofile-container form input {
+    border: 1px solid #0c1922;
+    box-shadow: 0 0 10px #0c1922;
+}
+
+.myprofile-container form button {
+    border: none;
+    border-radius: 5px;
+    background-color: #0c1922;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+
+/* ////////////cta/////////////// */
+.bgimage {
+    width: 100%;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+    background-color: black;
+    opacity: 0.9;
+}
+
+.mycta-text {
+
+    color: white;
+    width: 70%;
+    margin: auto;
+    margin-top: 100px;
+
+}
+
+.mycta-text h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+
+.profile_nav:hover {
+    color: rgb(19, 87, 177);
+    transition: 0.1s ease;
+}
+
+.myinstprofile-container {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    color: #0c1922;
+}
+
+.myinstprofile-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.myinstprofile-container form {
+    width: 80%;
+    margin: auto;
+}
+
+.myinstprofile-container h2 {
+    font-size: 1.25rem;
+    margin: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #0c192286;
+}
+
+.myinstprofile-details {
+    width: 100%;
+    margin: auto;
+
+}
+
+
+.myinstprofile-container form input {
+    border: 1px solid #0c1922;
+
+}
+
+.myinstprofile-container form button {
+    border: none;
+    border-radius: 5px;
+    background-color: #0c1922;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+
+.payment-detail h3 {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.payment-detail p {
+    font-size: 2.5rem;
+    color: red;
+}
+
+.new-course button {
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    background-color: rgb(2, 14, 19);
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 25px;
+}
+
+.new-course button:hover {
+    transition: 0.1s ease;
+    background-color: rgb(0, 0, 0);
+}
+
+@media screen and (max-width: 768px) {
+    .myinstprofile-container {
+        width: 90%;
+        margin: auto;
+    }
+
+    table {
+        font-size: 0.75rem;
+    }
+}

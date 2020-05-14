@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Login - MusiLearn{% endblock %}
+
+{% block meta %}
+<meta name="description"
+    content="MusiLearn is an Online Music Course Platform, providing you the cheapest music courses. Learn Guitar, Drums, Piano, Singing, and many more instruments.">
+<meta name="keywords" content="Learn music online, online music courses, online music tutorials">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/account/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="mysignup-container">
+    <h2>Login</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+        <p>Not Have an Account ? <a href="{% url 'account:signup'%}">Register Now</a></p>
+        <button type="submit">Login</button>
+
+    </form>
+
+</div>
+{% endblock %}

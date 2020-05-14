@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Refund Unsuccessfull - MusiLearn{%endblock%}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/courses/cannot_refund.css' %}">
+{%endblock%}
+
+{% block content %}
+<div class="order-container">
+    <h2>Refund Unsuccessfull</h2>
+    <p class="reason">Course Can Only Be Refunded Within <strong> 3 </strong> Days Of Enrolment</p>
+    <p>or</p>
+    <p class="reason">Or You Are The Instructor Of This Course</p>
+</div>
+{%endblock%}

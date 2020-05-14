@@ -1,0 +1,202 @@
+body {
+    overflow-x: hidden;
+}
+
+#uploading-spin {
+    opacity: 0;
+}
+
+#uploading-text {
+    font-weight: 700;
+    opacity: 0;
+}
+
+.mynav {
+    background-color: #0c1922 !important;
+    padding: -5px 0;
+}
+
+.navbar-brand {
+    width: 200px;
+}
+
+.navbar-brand img {
+    width: 200px;
+    height: 70px;
+    padding-right: 10px;
+    border-right: 2px solid white;
+}
+
+.hiname {
+    color: white;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.myrnav li {
+    margin-right: 15px;
+}
+
+.cart-wish {
+    font-size: 1.15rem;
+    margin-top: 5px;
+}
+
+.notreg {
+    text-align: center;
+    font-size: 0.75rem;
+    padding: 0;
+    margin: 0;
+    letter-spacing: 0.5px;
+    color: rgb(0, 89, 255);
+}
+
+.dropdown-menu {
+    width: 300px;
+    text-align: center;
+}
+
+.myelse p {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.myelse button {
+    border: none;
+    background-color: #0c1922;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.myelse button:hover {
+    background-color: black;
+}
+
+.myelse button a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* ///////////////end nav bar///////////// */
+/* ///////footer///////////// */
+footer {
+    background-color: #0c1922;
+    color: #fff;
+    padding: 15px 0;
+}
+
+.myfooter-1 {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.myfooter-block {
+    width: 24.5%;
+}
+
+.myfooter-1 img {
+    width: 80%;
+    height: 70px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.myfooter-2 {
+    text-align: center;
+}
+
+.myfooter-block form {
+    width: 75%;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.myfooter-block h3 {
+    font-size: 1.15rem;
+}
+
+.myfooter-block h6 {
+    margin-top: 15px;
+}
+
+.myfooter-block ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-top: 45px;
+}
+
+.myfooter-block li {
+    margin: 20px 0;
+}
+
+.tm {
+    margin-top: 25px;
+}
+
+.tm form input {
+    margin-top: 25px;
+}
+
+.support-ul {
+    margin: 0;
+    padding: 0;
+    margin-left: 15px;
+    list-style: none;
+    text-align: center;
+
+}
+
+.support-ul a {
+    color: rgba(255, 255, 255, 0.719);
+    text-decoration: none;
+}
+
+.support-ul a:hover {
+    color: white;
+    transition: 0.2s ease;
+}
+
+.support-ul i {
+    font-size: 1.15rem;
+}
+
+
+/* /////////end footer///////////// */
+/* /////////media query/////// */
+@media only screen and (max-width: 768px) {
+
+    /* /////////////nav bar///////// */
+    .dropdown-menu {
+        width: 100%;
+    }
+
+    /* ///////////end nav bar//////// */
+    /* ///////////footer///////// */
+    .myfooter-1 {
+        flex-direction: column;
+        width: 75%;
+        margin: auto;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .myfooter-block {
+        width: 75%;
+        margin: auto;
+        margin-bottom: 25px;
+    }
+
+    /* /////////end footer/////////////// */
+
+
+}

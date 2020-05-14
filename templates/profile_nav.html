@@ -1,0 +1,11 @@
+{% load static %}
+<nav class="profile_nav"
+    style="padding:10px 0 1px 0;background-color: #cfdbd5;width: 100%;margin: auto; margin-bottom: 20px;">
+    <ul
+        style="display: flex;justify-content: space-around; list-style: none;align-items: center;font-size: 0.75rem; text-transform: uppercase;">
+        <li><a style="text-decoration: none;color: #0c1922;" href="{% url 'account:user_profile' %}">Profile</a></li>
+        <li><a style="text-decoration: none;color: #0c1922;" href="{% url 'account:instructor_profile' %}">Instructor
+                Profile</a></li>
+        <li><a style="text-decoration: none;color: #0c1922;" href="{% url 'account:my_courses' %}">Courses</a></li>
+    </ul>
+</nav>
